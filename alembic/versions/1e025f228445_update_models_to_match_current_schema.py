@@ -5,6 +5,7 @@ Create Date: 2025-11-09 07:45:03.100581
 """
 
 import sqlalchemy as sa
+from sqlalchemy.dialects import postgresql
 
 from alembic import op
 
@@ -40,81 +41,45 @@ def upgrade():
             WHEN duplicate_object THEN null;
         END $$;
     """)
-    producttype_enum = sa.Enum(
-        "subscription", "one_time", name="producttype", create_type=False
-    )
-    subscriptiontier_enum = sa.Enum(
-        "free", "pro", "enterprise", name="subscriptiontier", create_type=False
-    )
-    voiceprovider_enum = sa.Enum(
-        "openai",
-        "google",
-        "aws_polly",
-        "azure",
-        "eleven_labs",
-        name="voiceprovider",
-        create_type=False,
-    )
-    conversionmode_enum = sa.Enum(
-        "full", "summary_explanation", name="conversionmode", create_type=False
-    )
 
-    op.create_table(
-        "products",
-        sa.Column("id", sa.Integer(), nullable=False),
-        sa.Column("paddle_product_id", sa.String(length=255), nullable=False),
-        sa.Column("name", sa.String(length=255), nullable=False),
-        sa.Column("description", sa.Text(), nullable=True),
-        sa.Column("type", producttype_enum, nullable=False),
-        sa.Column("price", sa.Numeric(precision=10, scale=2), nullable=True),
-        sa.Column("currency", sa.String(length=3), nullable=True),
-        sa.Column("credits_included", sa.Integer(), nullable=True),
-        sa.Column("subscription_tier", subscriptiontier_enum, nullable=True),
-        sa.Column("is_active", sa.Boolean(), nullable=True),
-        sa.Column(
-            "created_at",
-            sa.DateTime(timezone=True),
-            server_default=sa.text("(CURRENT_TIMESTAMP)"),
-            nullable=True,
-        ),
-        sa.Column("updated_at", sa.DateTime(timezone=True), nullable=True),
-        sa.PrimaryKeyConstraint("id"),
-        sa.UniqueConstraint("paddle_product_id"),
-        if_not_exists=True,
-    )
+    # Create products table using raw SQL to avoid SQLAlchemy's automatic ENUM creation
+    op.execute("""
+        CREATE TABLE IF NOT EXISTS products (
+            id SERIAL PRIMARY KEY,
+            paddle_product_id VARCHAR(255) NOT NULL UNIQUE,
+            name VARCHAR(255) NOT NULL,
+            description TEXT,
+            type producttype NOT NULL,
+            price NUMERIC(10, 2),
+            currency VARCHAR(3),
+            credits_included INTEGER,
+            subscription_tier subscriptiontier,
+            is_active BOOLEAN DEFAULT TRUE,
+            created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+            updated_at TIMESTAMP WITH TIME ZONE
+        )
+    """)
+
     try:
         op.create_index(op.f("ix_products_id"), "products", ["id"], unique=False)
     except Exception:
         pass
 
-    op.create_table(
-        "subscriptions",
-        sa.Column("id", sa.Integer(), nullable=False),
-        sa.Column("user_id", sa.Integer(), nullable=False),
-        sa.Column("product_id", sa.Integer(), nullable=False),
-        sa.Column("paddle_subscription_id", sa.String(length=255), nullable=True),
-        sa.Column("status", sa.String(length=50), nullable=True),
-        sa.Column("next_billing_date", sa.DateTime(timezone=True), nullable=True),
-        sa.Column("cancelled_at", sa.DateTime(timezone=True), nullable=True),
-        sa.Column(
-            "created_at",
-            sa.DateTime(timezone=True),
-            server_default=sa.text("(CURRENT_TIMESTAMP)"),
-            nullable=True,
-        ),
-        sa.Column("updated_at", sa.DateTime(timezone=True), nullable=True),
-        sa.ForeignKeyConstraint(
-            ["product_id"],
-            ["products.id"],
-        ),
-        sa.ForeignKeyConstraint(
-            ["user_id"],
-            ["users.id"],
-        ),
-        sa.PrimaryKeyConstraint("id"),
-        sa.UniqueConstraint("paddle_subscription_id"),
-        if_not_exists=True,
-    )
+    # Create subscriptions table using raw SQL
+    op.execute("""
+        CREATE TABLE IF NOT EXISTS subscriptions (
+            id SERIAL PRIMARY KEY,
+            user_id INTEGER NOT NULL REFERENCES users(id),
+            product_id INTEGER NOT NULL REFERENCES products(id),
+            paddle_subscription_id VARCHAR(255) UNIQUE,
+            status VARCHAR(50),
+            next_billing_date TIMESTAMP WITH TIME ZONE,
+            cancelled_at TIMESTAMP WITH TIME ZONE,
+            created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+            updated_at TIMESTAMP WITH TIME ZONE
+        )
+    """)
+
     try:
         op.create_index(
             op.f("ix_subscriptions_id"), "subscriptions", ["id"], unique=False
@@ -122,35 +87,27 @@ def upgrade():
     except Exception:
         pass
 
-    op.create_table(
-        "transactions",
-        sa.Column("id", sa.Integer(), nullable=False),
-        sa.Column("user_id", sa.Integer(), nullable=False),
-        sa.Column("product_id", sa.Integer(), nullable=True),
-        sa.Column("paddle_transaction_id", sa.String(length=255), nullable=False),
-        sa.Column("amount", sa.Numeric(precision=10, scale=2), nullable=False),
-        sa.Column("currency", sa.String(length=3), nullable=True),
-        sa.Column("status", sa.String(length=50), nullable=True),
-        sa.Column("credits_added", sa.Integer(), nullable=True),
-        sa.Column(
-            "created_at",
-            sa.DateTime(timezone=True),
-            server_default=sa.text("(CURRENT_TIMESTAMP)"),
-            nullable=True,
-        ),
-        sa.ForeignKeyConstraint(
-            ["product_id"],
-            ["products.id"],
-        ),
-        sa.ForeignKeyConstraint(
-            ["user_id"],
-            ["users.id"],
-        ),
-        sa.PrimaryKeyConstraint("id"),
-        sa.UniqueConstraint("paddle_transaction_id"),
-        if_not_exists=True,
-    )
-    op.create_index(op.f("ix_transactions_id"), "transactions", ["id"], unique=False)
+    # Create transactions table using raw SQL
+    op.execute("""
+        CREATE TABLE IF NOT EXISTS transactions (
+            id SERIAL PRIMARY KEY,
+            user_id INTEGER NOT NULL REFERENCES users(id),
+            product_id INTEGER REFERENCES products(id),
+            paddle_transaction_id VARCHAR(255) NOT NULL UNIQUE,
+            amount NUMERIC(10, 2) NOT NULL,
+            currency VARCHAR(3),
+            status VARCHAR(50),
+            credits_added INTEGER,
+            created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+
+    try:
+        op.create_index(
+            op.f("ix_transactions_id"), "transactions", ["id"], unique=False
+        )
+    except Exception:
+        pass
 
     # Idempotently add columns to jobs table
     _idempotent_add_column(
@@ -166,9 +123,16 @@ def upgrade():
         "jobs", sa.Column("progress_percentage", sa.Integer(), nullable=True)
     )
     _idempotent_add_column("jobs", sa.Column("error_message", sa.Text(), nullable=True))
-    _idempotent_add_column(
-        "jobs", sa.Column("voice_provider", voiceprovider_enum, nullable=True)
-    )
+
+    # Add ENUM columns using raw SQL to avoid automatic ENUM creation
+    op.execute("""
+        DO $$ BEGIN
+            ALTER TABLE jobs ADD COLUMN voice_provider voiceprovider;
+        EXCEPTION
+            WHEN duplicate_column THEN null;
+        END $$;
+    """)
+
     _idempotent_add_column(
         "jobs", sa.Column("voice_type", sa.String(length=50), nullable=True)
     )
@@ -179,9 +143,16 @@ def upgrade():
     _idempotent_add_column(
         "jobs", sa.Column("include_summary", sa.Boolean(), nullable=True)
     )
-    _idempotent_add_column(
-        "jobs", sa.Column("conversion_mode", conversionmode_enum, nullable=True)
-    )
+
+    # Add conversion_mode ENUM column using raw SQL
+    op.execute("""
+        DO $$ BEGIN
+            ALTER TABLE jobs ADD COLUMN conversion_mode conversionmode;
+        EXCEPTION
+            WHEN duplicate_column THEN null;
+        END $$;
+    """)
+
     _idempotent_add_column(
         "jobs",
         sa.Column(
@@ -198,8 +169,18 @@ def upgrade():
         "jobs", sa.Column("completed_at", sa.DateTime(timezone=True), nullable=True)
     )
 
-    op.alter_column("jobs", "user_id", existing_type=sa.INTEGER(), nullable=False)
-    op.alter_column("jobs", "pdf_s3_key", existing_type=sa.VARCHAR(), nullable=False)
+    # Modify existing columns in jobs table (do this carefully to avoid errors)
+    try:
+        op.alter_column("jobs", "user_id", existing_type=sa.INTEGER(), nullable=False)
+    except Exception:
+        pass
+
+    try:
+        op.alter_column(
+            "jobs", "pdf_s3_key", existing_type=sa.VARCHAR(), nullable=False
+        )
+    except Exception:
+        pass
 
     # Idempotently add columns to users table
     _idempotent_add_column(
@@ -211,9 +192,16 @@ def upgrade():
     _idempotent_add_column(
         "users", sa.Column("last_name", sa.String(length=100), nullable=True)
     )
-    _idempotent_add_column(
-        "users", sa.Column("subscription_tier", subscriptiontier_enum, nullable=True)
-    )
+
+    # Add subscription_tier ENUM column using raw SQL
+    op.execute("""
+        DO $$ BEGIN
+            ALTER TABLE users ADD COLUMN subscription_tier subscriptiontier;
+        EXCEPTION
+            WHEN duplicate_column THEN null;
+        END $$;
+    """)
+
     _idempotent_add_column(
         "users", sa.Column("paddle_customer_id", sa.String(length=255), nullable=True)
     )
