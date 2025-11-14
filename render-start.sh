@@ -25,6 +25,19 @@ if [ "$table_exists" = "users" ]; then
 else
     echo "Running database migrations for first-time setup..."
 
+    # Clean up any existing ENUM types that might have been created from failed migrations
+    echo "Cleaning up any existing ENUM types from previous failed migrations..."
+    psql "$DATABASE_URL" << 'EOF' 2>/dev/null || true
+DROP TYPE IF EXISTS jobstatus CASCADE;
+DROP TYPE IF EXISTS subscriptiontier CASCADE;
+DROP TYPE IF EXISTS voiceprovider CASCADE;
+DROP TYPE IF EXISTS conversionmode CASCADE;
+DROP TYPE IF EXISTS producttype CASCADE;
+DROP TYPE IF EXISTS subscriptionstatus CASCADE;
+DROP TYPE IF EXISTS transactiontype CASCADE;
+EOF
+    echo "Cleanup completed"
+
     # Change to parent directory where alembic.ini is located
     cd ..
 
