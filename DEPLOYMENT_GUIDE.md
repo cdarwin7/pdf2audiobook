@@ -437,7 +437,7 @@ For complete control, deploy on your own VPS.
 
 ```bash
 # On your VPS
-git clone https://github.com/jpotterlabs/pdf2audiobook.git
+git clone https://github.com/cdarwin7/pdf2audiobook.git
 cd pdf2audiobook
 
 # Create .env file
@@ -824,7 +824,7 @@ LOG_LEVEL=DEBUG
    ```
 
 3. **GitHub Issues:**
-   - https://github.com/jpotterlabs/pdf2audiobook/issues
+   - https://github.com/cdarwin7/pdf2audiobook/issues
 
 4. **Platform Support:**
    - Render: https://render.com/docs
@@ -920,4 +920,4 @@ LOG_LEVEL=DEBUG
 
 **Deployment Guide Last Updated:** 2025-01-27
 
-**Need Help?** Open an issue at https://github.com/jpotterlabs/pdf2audiobook/issues
+**Need Help?** Open an issue at https://github.com/cdarwin7/pdf2audiobook/issues

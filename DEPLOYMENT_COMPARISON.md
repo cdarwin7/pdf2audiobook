@@ -415,7 +415,7 @@ railway up
 ### Self-Hosted
 ```bash
 # On VPS
-git clone https://github.com/jpotterlabs/pdf2audiobook.git
+git clone https://github.com/cdarwin7/pdf2audiobook.git
 cd pdf2audiobook
 docker-compose up -d
 

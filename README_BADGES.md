@@ -9,17 +9,17 @@ Add this to the top of your `README.md` (after the title):
 ```markdown
 # PDF2AudioBook SaaS Platform
 
-[![GitHub License](https://img.shields.io/github/license/jpotterlabs/pdf2audiobook)](https://github.com/jpotterlabs/pdf2audiobook/blob/main/LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/jpotterlabs/pdf2audiobook?style=social)](https://github.com/jpotterlabs/pdf2audiobook/stargazers)
-[![GitHub Issues](https://img.shields.io/github/issues/jpotterlabs/pdf2audiobook)](https://github.com/jpotterlabs/pdf2audiobook/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/jpotterlabs/pdf2audiobook)](https://github.com/jpotterlabs/pdf2audiobook/pulls)
+[![GitHub License](https://img.shields.io/github/license/cdarwin7/pdf2audiobook)](https://github.com/cdarwin7/pdf2audiobook/blob/main/LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/cdarwin7/pdf2audiobook?style=social)](https://github.com/cdarwin7/pdf2audiobook/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/cdarwin7/pdf2audiobook)](https://github.com/cdarwin7/pdf2audiobook/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/cdarwin7/pdf2audiobook)](https://github.com/cdarwin7/pdf2audiobook/pulls)
 [![Python Version](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![Node Version](https://img.shields.io/badge/node-18+-green.svg)](https://nodejs.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![Next.js](https://img.shields.io/badge/Next.js-16.0+-black.svg?logo=next.js&logoColor=white)](https://nextjs.org/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg?logo=docker&logoColor=white)](https://www.docker.com/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/jpotterlabs/pdf2audiobook/blob/main/CONTRIBUTING.md)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/cdarwin7/pdf2audiobook/blob/main/CONTRIBUTING.md)
 ```
 
 ---
@@ -29,12 +29,12 @@ Add this to the top of your `README.md` (after the title):
 ### 1. Repository Status Badges
 
 ```markdown
-[![GitHub License](https://img.shields.io/github/license/jpotterlabs/pdf2audiobook)](https://github.com/jpotterlabs/pdf2audiobook/blob/main/LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/jpotterlabs/pdf2audiobook?style=social)](https://github.com/jpotterlabs/pdf2audiobook/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/jpotterlabs/pdf2audiobook?style=social)](https://github.com/jpotterlabs/pdf2audiobook/network/members)
-[![GitHub Issues](https://img.shields.io/github/issues/jpotterlabs/pdf2audiobook)](https://github.com/jpotterlabs/pdf2audiobook/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/jpotterlabs/pdf2audiobook)](https://github.com/jpotterlabs/pdf2audiobook/pulls)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/jpotterlabs/pdf2audiobook)](https://github.com/jpotterlabs/pdf2audiobook/commits/main)
+[![GitHub License](https://img.shields.io/github/license/cdarwin7/pdf2audiobook)](https://github.com/cdarwin7/pdf2audiobook/blob/main/LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/cdarwin7/pdf2audiobook?style=social)](https://github.com/cdarwin7/pdf2audiobook/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/cdarwin7/pdf2audiobook?style=social)](https://github.com/cdarwin7/pdf2audiobook/network/members)
+[![GitHub Issues](https://img.shields.io/github/issues/cdarwin7/pdf2audiobook)](https://github.com/cdarwin7/pdf2audiobook/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/cdarwin7/pdf2audiobook)](https://github.com/cdarwin7/pdf2audiobook/pulls)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/cdarwin7/pdf2audiobook)](https://github.com/cdarwin7/pdf2audiobook/commits/main)
 ```
 
 ### 2. Technology Stack Badges
@@ -66,11 +66,11 @@ Add this to the top of your `README.md` (after the title):
 ### 4. CI/CD & Quality Badges (Add when set up)
 
 ```markdown
-[![CI/CD](https://github.com/jpotterlabs/pdf2audiobook/workflows/CI/badge.svg)](https://github.com/jpotterlabs/pdf2audiobook/actions)
-[![Tests](https://github.com/jpotterlabs/pdf2audiobook/workflows/Tests/badge.svg)](https://github.com/jpotterlabs/pdf2audiobook/actions)
-[![Coverage](https://codecov.io/gh/jpotterlabs/pdf2audiobook/branch/main/graph/badge.svg)](https://codecov.io/gh/jpotterlabs/pdf2audiobook)
-[![Code Quality](https://api.codacy.com/project/badge/Grade/YOUR_PROJECT_ID)](https://www.codacy.com/gh/jpotterlabs/pdf2audiobook)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=jpotterlabs_pdf2audiobook&metric=security_rating)](https://sonarcloud.io/dashboard?id=jpotterlabs_pdf2audiobook)
+[![CI/CD](https://github.com/cdarwin7/pdf2audiobook/workflows/CI/badge.svg)](https://github.com/cdarwin7/pdf2audiobook/actions)
+[![Tests](https://github.com/cdarwin7/pdf2audiobook/workflows/Tests/badge.svg)](https://github.com/cdarwin7/pdf2audiobook/actions)
+[![Coverage](https://codecov.io/gh/cdarwin7/pdf2audiobook/branch/main/graph/badge.svg)](https://codecov.io/gh/cdarwin7/pdf2audiobook)
+[![Code Quality](https://api.codacy.com/project/badge/Grade/YOUR_PROJECT_ID)](https://www.codacy.com/gh/cdarwin7/pdf2audiobook)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=cdarwin7_pdf2audiobook&metric=security_rating)](https://sonarcloud.io/dashboard?id=cdarwin7_pdf2audiobook)
 ```
 
 ### 5. Code Style & Development Badges
@@ -80,7 +80,7 @@ Add this to the top of your `README.md` (after the title):
 [![Linting: ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![Type Checked: mypy](https://img.shields.io/badge/type_checked-mypy-blue.svg)](http://mypy-lang.org/)
 [![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/jpotterlabs/pdf2audiobook/blob/main/CONTRIBUTING.md)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/cdarwin7/pdf2audiobook/blob/main/CONTRIBUTING.md)
 ```
 
 ### 6. Deployment & Status Badges
@@ -94,17 +94,17 @@ Add this to the top of your `README.md` (after the title):
 ### 7. Documentation Badges
 
 ```markdown
-[![Documentation](https://img.shields.io/badge/docs-latest-blue.svg)](https://github.com/jpotterlabs/pdf2audiobook/tree/main/docs)
+[![Documentation](https://img.shields.io/badge/docs-latest-blue.svg)](https://github.com/cdarwin7/pdf2audiobook/tree/main/docs)
 [![API Docs](https://img.shields.io/badge/API-docs-orange.svg)](https://api.your-domain.com/docs)
-[![Contributing Guide](https://img.shields.io/badge/contributing-guide-purple.svg)](https://github.com/jpotterlabs/pdf2audiobook/blob/main/CONTRIBUTING.md)
-[![Code of Conduct](https://img.shields.io/badge/code_of_conduct-enforced-ff69b4.svg)](https://github.com/jpotterlabs/pdf2audiobook/blob/main/CODE_OF_CONDUCT.md)
+[![Contributing Guide](https://img.shields.io/badge/contributing-guide-purple.svg)](https://github.com/cdarwin7/pdf2audiobook/blob/main/CONTRIBUTING.md)
+[![Code of Conduct](https://img.shields.io/badge/code_of_conduct-enforced-ff69b4.svg)](https://github.com/cdarwin7/pdf2audiobook/blob/main/CODE_OF_CONDUCT.md)
 ```
 
 ### 8. Community & Social Badges
 
 ```markdown
 [![Discord](https://img.shields.io/discord/YOUR_DISCORD_ID?color=7289da&label=Discord&logo=discord&logoColor=white)](https://discord.gg/YOUR_INVITE)
-[![Twitter Follow](https://img.shields.io/twitter/follow/jpotterlabs?style=social)](https://twitter.com/jpotterlabs)
+[![Twitter Follow](https://img.shields.io/twitter/follow/cdarwin7?style=social)](https://twitter.com/cdarwin7)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)
 ```
 
@@ -115,8 +115,8 @@ Add this to the top of your `README.md` (after the title):
 For a cleaner look without overwhelming users, use this minimal set:
 
 ```markdown
-[![License](https://img.shields.io/github/license/jpotterlabs/pdf2audiobook)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/jpotterlabs/pdf2audiobook?style=social)](https://github.com/jpotterlabs/pdf2audiobook/stargazers)
+[![License](https://img.shields.io/github/license/cdarwin7/pdf2audiobook)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/cdarwin7/pdf2audiobook?style=social)](https://github.com/cdarwin7/pdf2audiobook/stargazers)
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-009688.svg)](https://fastapi.tiangolo.com/)
 [![Next.js](https://img.shields.io/badge/Next.js-16.0+-black.svg)](https://nextjs.org/)
@@ -135,9 +135,9 @@ For maximum visibility and professionalism:
 
 <div align="center">
 
-[![GitHub License](https://img.shields.io/github/license/jpotterlabs/pdf2audiobook)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/jpotterlabs/pdf2audiobook?style=social)](https://github.com/jpotterlabs/pdf2audiobook/stargazers)
-[![GitHub Issues](https://img.shields.io/github/issues/jpotterlabs/pdf2audiobook)](https://github.com/jpotterlabs/pdf2audiobook/issues)
+[![GitHub License](https://img.shields.io/github/license/cdarwin7/pdf2audiobook)](LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/cdarwin7/pdf2audiobook?style=social)](https://github.com/cdarwin7/pdf2audiobook/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/cdarwin7/pdf2audiobook)](https://github.com/cdarwin7/pdf2audiobook/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg?logo=python&logoColor=white)](https://www.python.org/)

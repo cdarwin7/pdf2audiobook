@@ -2,7 +2,7 @@
 name = "pdf2audiobook"
 version = "0.1.0"
 description = "PDF to Audiobook SaaS Platform"
-authors = [{name = "jpotterlabs", email = "jason@jpotterlabs.com"}]
+authors = [{name = "cdarwin7", email = "contact@example.com"}]
 dependencies = [
     "fastapi>=0.104.1",
     "uvicorn[standard]>=0.24.0",

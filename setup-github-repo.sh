@@ -20,7 +20,7 @@ NC='\033[0m' # No Color
 # Configuration
 REPO_NAME="pdf2audiobook"
 REPO_DESCRIPTION="A production-ready SaaS platform for converting PDF documents to high-quality audiobooks using advanced OCR and text-to-speech technology"
-GITHUB_USERNAME="jpotterlabs"
+GITHUB_USERNAME="cdarwin7"
 
 echo -e "${BLUE}Repository Name:${NC} $REPO_NAME"
 echo -e "${BLUE}Description:${NC} $REPO_DESCRIPTION"

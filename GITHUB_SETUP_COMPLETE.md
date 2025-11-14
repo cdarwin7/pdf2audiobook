@@ -2,7 +2,7 @@
 
 ## Repository Information
 
-**Repository URL:** https://github.com/jpotterlabs/pdf2audiobook
+**Repository URL:** https://github.com/cdarwin7/pdf2audiobook
 
 **Repository Name:** `pdf2audiobook`
 
@@ -17,7 +17,7 @@
 1. **Git Repository Initialized**
    - Initialized local Git repository
    - Renamed default branch to `main`
-   - Configured Git user: jpotterlabs <jason@jpotterlabs.com>
+   - Configured Git user: cdarwin7 <contact@example.com>
 
 2. **Files Prepared**
    - Updated `.gitignore` to exclude:
@@ -36,7 +36,7 @@
    - **Commit Message:** "Initial commit: PDF2AudioBook SaaS Platform"
 
 4. **Pushed to GitHub**
-   - Connected to remote: `https://github.com/jpotterlabs/pdf2audiobook.git`
+   - Connected to remote: `https://github.com/cdarwin7/pdf2audiobook.git`
    - Pushed complete codebase to `main` branch
    - Set up tracking between local and remote branches
 
@@ -83,7 +83,7 @@ Total: 104 files, ~22,000 lines of code
 
 ### 1. Configure Repository Settings
 
-Visit: https://github.com/jpotterlabs/pdf2audiobook/settings
+Visit: https://github.com/cdarwin7/pdf2audiobook/settings
 
 **Recommended Settings:**
 - ✅ Enable branch protection for `main`
@@ -94,7 +94,7 @@ Visit: https://github.com/jpotterlabs/pdf2audiobook/settings
 
 ### 2. Add Repository Secrets
 
-Visit: https://github.com/jpotterlabs/pdf2audiobook/settings/secrets/actions
+Visit: https://github.com/cdarwin7/pdf2audiobook/settings/secrets/actions
 
 **Required Secrets for CI/CD:**
 ```
@@ -116,13 +116,13 @@ OPENAI_API_KEY                # OpenAI API key
 
 ```bash
 # Enable branch protection via GitHub CLI
-gh repo edit jpotterlabs/pdf2audiobook \
+gh repo edit cdarwin7/pdf2audiobook \
   --enable-auto-merge \
   --enable-issues \
   --enable-projects \
   --enable-wiki=false
 
-# Or visit: https://github.com/jpotterlabs/pdf2audiobook/settings/branches
+# Or visit: https://github.com/cdarwin7/pdf2audiobook/settings/branches
 ```
 
 ### 4. Create Initial GitHub Actions Workflow
@@ -131,7 +131,7 @@ Create `.github/workflows/ci.yml` for automated testing and deployment.
 
 ### 5. Add Topics/Tags
 
-Visit: https://github.com/jpotterlabs/pdf2audiobook
+Visit: https://github.com/cdarwin7/pdf2audiobook
 
 **Suggested Topics:**
 - `saas`
@@ -218,11 +218,11 @@ git commit -m "docs: update API documentation"
 
 ## 🔗 Important Links
 
-- **Repository:** https://github.com/jpotterlabs/pdf2audiobook
-- **Issues:** https://github.com/jpotterlabs/pdf2audiobook/issues
-- **Pull Requests:** https://github.com/jpotterlabs/pdf2audiobook/pulls
-- **Actions:** https://github.com/jpotterlabs/pdf2audiobook/actions
-- **Settings:** https://github.com/jpotterlabs/pdf2audiobook/settings
+- **Repository:** https://github.com/cdarwin7/pdf2audiobook
+- **Issues:** https://github.com/cdarwin7/pdf2audiobook/issues
+- **Pull Requests:** https://github.com/cdarwin7/pdf2audiobook/pulls
+- **Actions:** https://github.com/cdarwin7/pdf2audiobook/actions
+- **Settings:** https://github.com/cdarwin7/pdf2audiobook/settings
 
 ---
 
@@ -246,11 +246,11 @@ git commit -m "docs: update API documentation"
 
 Your repository is now live and ready for collaboration. Share it with your team, set up CI/CD pipelines, and start building!
 
-**Repository:** https://github.com/jpotterlabs/pdf2audiobook
+**Repository:** https://github.com/cdarwin7/pdf2audiobook
 
 **Clone Command:**
 ```bash
-git clone https://github.com/jpotterlabs/pdf2audiobook.git
+git clone https://github.com/cdarwin7/pdf2audiobook.git
 cd pdf2audiobook
 ```
 
